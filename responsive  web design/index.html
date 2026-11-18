@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Product Grid </title>
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --primary-hover: #4338ca;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-hover: 0 20px 25px -5px rgba(79, 70, 229, 0.15), 0 10px 10px -5px rgba(79, 70, 229, 0.04);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+        }
+
+    
+        .products {
+            padding: 90px 6%;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 38px;
+            font-weight: 800;
+            margin-bottom: 50px;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 12px auto 0;
+            border-radius: 2px;
+        }
+
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+    
+        .product-card {
+            background: var(--card-bg);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(79, 70, 229, 0.3);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .product-card h3 {
+            padding: 20px 20px 8px;
+            color: var(--text-main);
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .product-card p {
+            padding: 0 20px;
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .product-card span {
+            display: block;
+            padding: 20px;
+            color: var(--primary-color);
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+
+        @media screen and (max-width: 1024px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+
+            .products {
+                padding: 60px 4%;
+            }
+        }
+
+
+        @media screen and (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                max-width: 450px;
+                margin: 0 auto;
+            }
+
+            .section-title {
+                font-size: 30px;
+                margin-bottom: 35px;
+            }
+        }
+
+
+        @media screen and (max-width: 375px) {
+            .section-title {
+                font-size: 26px;
+            }
+
+            .product-card img {
+                height: 190px;
+            }
+
+            .products {
+                padding: 40px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="products">
+        <h2 class="section-title">Sản Phẩm Công Nghệ Nổi Bật</h2>
+        
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcQv0Y3kD6-7jYwiGbyc2bKf2brCC6szqtuTZJkQdH-nDoNUfvEkHRiq8iCbayb0yuOxrWmdbNxIQLddpso" alt="Tai nghe không dây">
+                <h3>Tai Nghe Chống Ồn</h3>
+                <p>Tai nghe chụp tai không dây cao cấp với công nghệ lọc tiếng ồn chủ động ANC tiên tiến.</p>
+                <span>2.490.000 đ</span>
+            </div>
+
+            <div class="product-card">
+                <img src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcS0Dv2tMyfKO-mL7kkrwSwDHYokDZ1y0AdsaPbWnYNhrK-AJfEZIvO0OBzhcUxwGtyEH5S46kfSJjwPMxw" alt="Đồng hồ thông minh">
+                <h3>Smartwatch Series X</h3>
+                <p>Theo dõi sức khỏe toàn diện, màn hình AMOLED sắc nét và thời lượng pin ấn tượng.</p>
+                <span>3.190.000 đ</span>
+            </div>
+
+            <div class="product-card">
+                <img src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcT5VG_IwvhDpLqdG3RpTNkOMlZ2uaiNbBzgGyyNkvwQwvHWFH8wWYCc1GdwtsCI3QsQqviFj1RcQj7sovE" alt="Loa Bluetooth">
+                <h3>Loa Bluetooth Mini</h3>
+                <p>Âm thanh vòm sống động, thiết kế nhỏ gọn chống nước, tiện lợi mang theo mọi lúc mọi nơi.</p>
+                <span>1.250.000 đ</span>
+            </div>
+
+            <div class="product-card">
+                <img src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcSCrWbbxd-MULRTfhthNrkzguY5qtzLVbIYAxWyMo6BKWrWYhTzDS8XCdhjcF45caaRyIOIIdjVhgVYJj4" alt="Bộ quà tặng công nghệ">
+                <h3>Set Phụ Kiện Tech</h3>
+                <p>Bộ sưu tập thiết bị thông minh và phụ kiện cao cấp dành riêng cho dân công nghệ hiện đại.</p>
+                <span>4.500.000 đ</span>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
