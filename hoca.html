@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đại Dương Kỳ Thú - Hồ Cá Sáng Tạo</title>
+    
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: #050b14;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .ocean-tank {
+            position: relative;
+            width: 90vw;
+            height: 80vh;
+            background: linear-gradient(180deg, #0099ff 0%, #004488 50%, #001a33 100%);
+            border-radius: 20px;
+            border: 6px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7), inset 0 0 80px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+
+        .ocean-tank::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 200%; height: 100%;
+            background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.15) 50%, transparent 70%);
+            animation: sunRay 8s ease-in-out infinite alternate;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        @keyframes sunRay {
+            0% { transform: translateX(-20%) scaleY(1); }
+            100% { transform: translateX(10%) scaleY(1.1); }
+        }
+
+        .seaweed-bg {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 30px;
+            background: rgba(0, 30, 60, 0.6);
+            z-index: 1;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -20px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: riseUp linear infinite;
+            z-index: 3;
+        }
+
+        @keyframes riseUp {
+            0% { transform: translateY(0) scale(0.8); opacity: 0.8; }
+            50% { transform: translateY(-40vh) scale(1.2); opacity: 0.4; }
+            100% { transform: translateY(-80vh) scale(0.5); opacity: 0; }
+        }
+
+    
+        .shark-swimming {
+            position: absolute;
+            width: 180px;
+            height: auto;
+            background: url('image_d85a97.png') no-repeat center/contain;
+            z-index: 5;
+            filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.4));
+            animation: swimPath 16s ease-in-out infinite;
+        }
+
+        @keyframes swimPath {
+            0% {
+                left: -200px;
+                top: 20%;
+                transform: scaleX(1) rotate(0deg);
+            }
+            30% {
+                top: 50%;
+                transform: scaleX(1) rotate(15deg);
+            }
+            48% {
+                left: 85vw;
+                top: 30%;
+                transform: scaleX(1) rotate(-10deg);
+            }
+            50% {
+                left: 85vw;
+                top: 30%;
+                transform: scaleX(-1) rotate(-10deg);
+            }
+            80% {
+                top: 60%;
+                transform: scaleX(-1) rotate(10deg);
+            }
+            100% {
+                left: -200px;
+                top: 20%;
+                transform: scaleX(-1) rotate(0deg);
+            }
+        }
+
+        
+        .my-fish {
+            position: absolute;
+            width: 130px;
+            height: auto;
+            z-index: 6;
+            pointer-events: none;
+            filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.3));
+            animation: swimRound 12s linear infinite;
+        }
+
+        
+        @keyframes swimRound {
+            0% {
+                left: 10%;
+                top: 70%;
+                transform: scaleX(1) rotate(0deg);
+            }
+            25% {
+                left: 60%;
+                top: 20%;
+                transform: scaleX(1) rotate(-25deg);
+            }
+            50% {
+                left: 75%;
+                top: 65%;
+                transform: scaleX(-1) rotate(15deg); 
+            }
+            75% {
+                left: 25%O;
+                top: 40%;
+                transform: scaleX(-1) rotate(-15deg);
+            }
+            100% {
+                left: 10%;
+                top: 70%;
+                transform: scaleX(1) rotate(0deg);
+            }
+        }
+
+        .tank-title {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            z-index: 10;
+            pointer-events: none;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ocean-tank">
+        <div class="tank-title">✨ Hồ Cá Đại Dương Xanh</div>
+        
+       
+        <div class="shark-swimming"></div>
+
+        
+        <img src="turtle .png" class="my-fish" alt="Con cá bơi vòng vòng">
+
+    
+        <div class="bubble" style="left: 15%; width: 10px; height: 10px; animation-duration: 5s; animation-delay: 0s;"></div>
+        <div class="bubble" style="left: 35%; width: 14px; height: 14px; animation-duration: 7s; animation-delay: 2s;"></div>
+        <div class="bubble" style="left: 65%; width: 8px; height: 8px; animation-duration: 4.5s; animation-delay: 1s;"></div>
+        <div class="bubble" style="left: 85%; width: 12px; height: 12px; animation-duration: 6s; animation-delay: 3s;"></div>
+        
+        <div class="seaweed-bg"></div>
+    </div>
+
+</body>
+</html>
